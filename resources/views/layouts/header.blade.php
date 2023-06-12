@@ -19,7 +19,6 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
-    https://app.wotnot.io/bot-preview/text-mode/rFMCfc5DSYsS121538638134xsrLLvZr
 
 </head>
 
