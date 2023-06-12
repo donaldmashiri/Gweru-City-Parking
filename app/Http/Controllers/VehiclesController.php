@@ -13,7 +13,9 @@ class VehiclesController extends Controller
      */
     public function index()
     {
-        return view('vehicles.index')->with('vehicles', Vehicle::all());
+        $user = auth()->user();
+//        return view('vehicles.index')->with('vehicles', Vehicle::all());
+        return view('vehicles.index')->with('vehicles', Vehicle::where('user_id', $user->id)->orderByDesc('id')->get());
     }
 
     /**
@@ -33,7 +35,7 @@ class VehiclesController extends Controller
             'make' => ['required', 'max:255'],
             'model' => ['required', 'max:255'],
             'year' => ['required', 'max:255'],
-            'plate_number' => ['required', 'max:255'],
+            'plate_number' => ['required', 'max:255', 'unique:vehicles'],
             'image' => 'required|file|mimes:png,jpg,jpeg',
         ]);
 
@@ -51,7 +53,7 @@ class VehiclesController extends Controller
             'image' => $documentsPath,
         ]);
 
-        return redirect()->back()->with('success', 'Application was Successfully Created.');
+        return redirect()->back()->with('success', 'Vehicle was Successfully Added.');
     }
 
     /**
