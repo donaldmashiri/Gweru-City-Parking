@@ -37,6 +37,18 @@
                                     <h3>Current Time</h3>
                                     <div id="currentTime" class="alert alert-info"></div>
                                 </div>
+                                <div class="col-md-8">
+                                    <h3>Upload Photo</h3>
+                                  <input type="file" class="form-control" placeholder="">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Reason for Clamp</h3>
+                                    <textarea class="form-control" name="" id="" cols="15" rows="3"></textarea>
+                                </div>
+                                <div class="col-md-8">
+                                    <button class="btn btn-primary">Submit</button>
+                                </div>
+
                             </div>
                         </div>
 

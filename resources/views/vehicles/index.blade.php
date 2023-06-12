@@ -33,11 +33,11 @@
                                     <table class="table table-bordered table-sm">
                                         <thead>
                                         <tr>
+                                            <th scope="col">#</th>
                                             <th scope="col">Year</th>
                                             <th scope="col">Make</th>
                                             <th scope="col">Model</th>
                                             <th scope="col">plate_number</th>
-                                            <th scope="col">engine_number</th>
                                             <th scope="col">Date added</th>
                                             <th scope="col"></th>
                                         </tr>
@@ -45,12 +45,16 @@
                                         <tbody>
                                         @foreach($vehicles as $vehicle)
                                             <tr>
+                                                <th>{{ $vehicle->id }}</th>
                                                 <th>{{ $vehicle->year }}</th>
                                                 <th>{{ $vehicle->make }}</th>
                                                 <th>{{ $vehicle->model }}</th>
                                                 <th>{{ $vehicle->plate_number }}</th>
-                                                <th>{{ $vehicle->engine_number }}</th>
                                                 <th>{{ $vehicle->created_at }}</th>
+                                                <th>
+                                                    <a href="" class="btn btn-info">Edit</a>
+                                                    <a href="" class="btn btn-danger">Delete</a>
+                                                </th>
                                             </tr>
                                         @endforeach
                                         </tbody>

@@ -8,6 +8,14 @@
 <li class="nav-item ">
     <a class="nav-link collapsed " href="{{ route('clamps.index') }}"><i class="fas fa-fw fa-clipboard"></i>Clamps   </a>
 </li>
+
+<li class="nav-item ">
+    <a class="nav-link collapsed " href="#"><i class="fas fa-fw fa-node"></i>Notifications   </a>
+</li>
+
+<li class="nav-item ">
+    <a class="nav-link collapsed " href="#"><i class="fas fa-fw fa-chair"></i>Chatbot   </a>
+</li>
 {{--@if(Auth::user()->role === "admin")--}}
 {{--    <li class="nav-item ">--}}
 {{--        <a class="nav-link collapsed " href="{{ route('users.index') }}"><i class="fas fa-fw fa-car"></i>Drivers</a>--}}
