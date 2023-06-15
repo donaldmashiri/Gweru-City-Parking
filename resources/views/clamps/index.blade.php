@@ -16,6 +16,10 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
 
+                   <h3>
+                       @include('partials.errors')
+                   </h3>
+
                     <div
                         class="card-header bg-gradient-success py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-white">Add Clamps</h6>
@@ -23,6 +27,8 @@
                             <a href="{{ route('clamps.index') }}" class="btn btn-success btn-sm justify-content-end" >Back</a>
                         </div>
                     </div>
+
+
 
                     <!-- Card Body -->
                     <div class="card-body">
@@ -45,9 +51,12 @@
                                     <h3>Reason for Clamp</h3>
                                     <textarea class="form-control" name="" id="" cols="15" rows="3"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <button class="btn btn-primary">Submit</button>
-                                </div>
+                                <form action="{{ route('clamps.store') }}" method="post">
+                                    @csrf
+                                    <div class="col-md-8">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
 
                             </div>
                         </div>

@@ -27,7 +27,7 @@ class ClampController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->back()->with('success', 'Vehicle was Successfully Clamped.');
     }
 
     /**
