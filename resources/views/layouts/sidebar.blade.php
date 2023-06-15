@@ -3,20 +3,19 @@
 </li>
 
 @if(Auth::user()->role === "admin")
-<li class="nav-item ">
-    <a class="nav-link collapsed " href="/reports"><i class="fas fa-fw fa-chair"></i>Reports   </a>
-</li>
+    <li class="nav-item ">
+        <a class="nav-link collapsed " href="{{ route('clamps.index') }}"><i class="fas fa-fw fa-clipboard"></i>Clamps   </a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link collapsed " href="{{ route('users.index') }}"><i class="fas fa-fw fa-chair"></i>Users </a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link collapsed " href="/reports"><i class="fas fa-fw fa-chair"></i>Reports   </a>
+    </li>
 
-<li class="nav-item ">
-    <a class="nav-link collapsed " href="{{ route('users.index') }}"><i class="fas fa-fw fa-chair"></i>Users   </a>
-</li>
 @else
     <li class="nav-item ">
         <a class="nav-link collapsed " href="{{ route('vehicles.index') }}"><i class="fas fa-fw fa-road"></i>Vehicles   </a>
-    </li>
-
-    <li class="nav-item ">
-        <a class="nav-link collapsed " href="{{ route('clamps.index') }}"><i class="fas fa-fw fa-clipboard"></i>Clamps   </a>
     </li>
 
     <li class="nav-item ">
