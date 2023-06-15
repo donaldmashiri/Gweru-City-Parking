@@ -8,7 +8,7 @@
 </li>
 
 <li class="nav-item ">
-    <a class="nav-link collapsed " href="/users"><i class="fas fa-fw fa-chair"></i>Users   </a>
+    <a class="nav-link collapsed " href="{{ route('users.index') }}"><i class="fas fa-fw fa-chair"></i>Users   </a>
 </li>
 @else
     <li class="nav-item ">
