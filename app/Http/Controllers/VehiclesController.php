@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Auth;
 
 class VehiclesController extends Controller
 {
@@ -13,9 +14,13 @@ class VehiclesController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
-//        return view('vehicles.index')->with('vehicles', Vehicle::all());
-        return view('vehicles.index')->with('vehicles', Vehicle::where('user_id', $user->id)->orderByDesc('id')->get());
+        if(Auth::user()->role === "admin"){
+            return view('vehicles.index')->with('vehicles', Vehicle::all());
+        }else{
+            $user = auth()->user();
+
+            return view('vehicles.index')->with('vehicles', Vehicle::where('user_id', $user->id)->orderByDesc('id')->get());
+        }
     }
 
     /**

@@ -23,3 +23,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('vehicles', \App\Http\Controllers\VehiclesController::class);
 Route::resource('clamps', \App\Http\Controllers\ClampController::class);
+
+Route::get('/reports', [App\Http\Controllers\HomeController::class, 'reports'])->name('reports');
