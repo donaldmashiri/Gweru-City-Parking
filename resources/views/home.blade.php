@@ -36,6 +36,18 @@
                                 <th scope="col">Email</th>
                                 <td> {{ Auth::user()->email }}</td>
                             </tr>
+                            <tr>
+                                <th scope="col">Phone</th>
+                                <td> {{ Auth::user()->phone }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Home Address</th>
+                                <td> {{ Auth::user()->address }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">NAtional ID</th>
+                                <td> {{ Auth::user()->national_id }}</td>
+                            </tr>
                             </thead>
                         </table>
                     </div>

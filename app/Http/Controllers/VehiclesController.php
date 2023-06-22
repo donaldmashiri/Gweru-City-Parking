@@ -41,7 +41,8 @@ class VehiclesController extends Controller
             'model' => ['required', 'max:255'],
             'year' => ['required', 'max:255'],
             'plate_number' => ['required', 'max:255', 'unique:vehicles'],
-            'image' => 'required|file|mimes:png,jpg,jpeg',
+            'image' => ['required', 'image', 'max:255', 'mimes:png,jpg,jpeg'],
+//            'image' => 'required|file|mimes:png,jpg,jpeg',
         ]);
 
 //        $documentsPath = $request->file('image')->store('image');
