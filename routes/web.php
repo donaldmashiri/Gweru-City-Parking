@@ -26,3 +26,4 @@ Route::resource('clamps', \App\Http\Controllers\ClampController::class);
 Route::resource('users', \App\Http\Controllers\UserController::class);
 
 Route::get('/reports', [App\Http\Controllers\HomeController::class, 'reports'])->name('reports');
+Route::get('/notify', [App\Http\Controllers\HomeController::class, 'notify'])->name('notify');

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('clamps', function (Blueprint $table) {
             $table->id();
+            $table->text('latitude');
+            $table->text('longitude');
+            $table->string('plate_number');
+            $table->integer('user_id');
+            $table->text('image');
+            $table->text('reason');
             $table->timestamps();
         });
     }

@@ -22,83 +22,48 @@
 
                     <div
                         class="card-header bg-gradient-success py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-white">Add Clamps</h6>
+                        <h6 class="m-0 font-weight-bold text-white">Clamps</h6>
                         <div class="justify-content-end">
-                            <a href="{{ route('clamps.index') }}" class="btn btn-success btn-sm justify-content-end" >Back</a>
+                            <a href="{{ route('clamps.create') }}" class="btn btn-primary btn-sm justify-content-end" >Add Clamp</a>
                         </div>
                     </div>
-
-
 
                     <!-- Card Body -->
                     <div class="card-body">
-                        <button id="coordinatesBtn" class="btn btn-primary">Get Coordinates</button>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3>Coordinates</h3>
-                                    <div id="coordinates" class="alert alert-info"></div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h3>Current Time</h3>
-                                    <div id="currentTime" class="alert alert-info"></div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h3>Upload Photo</h3>
-                                  <input type="file" class="form-control" placeholder="">
-                                </div>
-                                <div class="col-md-8">
-                                    <h3>Reason for Clamp</h3>
-                                    <textarea class="form-control" name="" id="" cols="15" rows="3"></textarea>
-                                </div>
-                                <form action="{{ route('clamps.store') }}" method="post">
-                                    @csrf
-                                    <div class="col-md-8">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", function() {
-                                function getCoordinates() {
-                                    if (navigator.geolocation) {
-                                        navigator.geolocation.getCurrentPosition(showCoordinates);
-                                    } else {
-                                        console.log("Geolocation is not supported by this browser.");
-                                    }
-                                }
-
-                                function showCoordinates(position) {
-                                    var latitude = position.coords.latitude;
-                                    var longitude = position.coords.longitude;
-                                    var coordinates = "GPS Coordinates: " + latitude + ", " + longitude;
-                                    document.getElementById("coordinates").innerHTML = coordinates;
-                                }
-
-                                function getCurrentTime() {
-                                    var currentTime = new Date().toLocaleString();
-                                    document.getElementById("currentTime").innerHTML = "Current Time: " + currentTime;
-                                }
-
-                                document.getElementById("coordinatesBtn").addEventListener("click", function() {
-                                    getCoordinates();
-                                    getCurrentTime();
-                                });
-                            });
-                        </script>
-
-
-
-
-
-
-
-
-
+                        <h1>All Clamps</h1>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>ref#</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Plate Number</th>
+                                <th>Vehicle Owner</th>
+                                <th>Image</th>
+                                <th>Reason</th>
+                                <th>Clamped By</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($clamps as $clamp)
+                                <tr>
+                                    <td>GCC-00{{ $clamp->id }}</td>
+                                    <td>{{ $clamp->latitude }}</td>
+                                    <td>{{ $clamp->longitude }}</td>
+                                    <td>{{ $clamp->plate_number }}</td>
+                                    <td>{{ $clamp->user->name }}</td>
+                                    <td>
+                                        <img src="{{ asset('storage/' . $clamp->image) }}" alt="Clamp Image" width="100" height="60">
+{{--                                        <img src="{{ asset('storage/' . $clamp->image) }}" alt="Clamp Image">--}}
+                                    </td>
+                                    <td>{{ $clamp->reason }}</td>
+                                    <td>Marshalls</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
+
                 </div>
             </div>
 

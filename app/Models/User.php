@@ -23,6 +23,13 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function clamps()
+    {
+        return $this->hasMany(Clamp::class);
+    }
+
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

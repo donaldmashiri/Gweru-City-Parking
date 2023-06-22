@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clamp;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
@@ -26,6 +27,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function notify()
+    {
+        return view('notify')->with('clamps', Clamp::all());
     }
 
     public function reports()

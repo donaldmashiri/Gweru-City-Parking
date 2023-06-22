@@ -44,7 +44,9 @@ class VehiclesController extends Controller
             'image' => 'required|file|mimes:png,jpg,jpeg',
         ]);
 
-        $documentsPath = $request->file('image')->store('image');
+//        $documentsPath = $request->file('image')->store('image');
+        $imageName = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('images', $imageName);
 
 
         $statusOptions = ['approved', 'rejected'];
@@ -55,7 +57,7 @@ class VehiclesController extends Controller
             "model" => request('model'),
             "year" => request('year'),
             "plate_number" => request('plate_number'),
-            'image' => $documentsPath,
+            'image' => $image,
         ]);
 
         return redirect()->back()->with('success', 'Vehicle was Successfully Added.');

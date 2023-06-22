@@ -34,6 +34,7 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
+                                            <th scope="col">Image</th>
                                             <th scope="col">Year</th>
                                             <th scope="col">Make</th>
                                             <th scope="col">Model</th>
@@ -46,6 +47,9 @@
                                         @foreach($vehicles as $vehicle)
                                             <tr>
                                                 <th>{{ $vehicle->id }}</th>
+                                                <th>
+                                                    <img src="{{ asset('storage/' . $vehicle->image) }}" alt="" width="100" height="60">
+                                                </th>
                                                 <th>{{ $vehicle->year }}</th>
                                                 <th>{{ $vehicle->make }}</th>
                                                 <th>{{ $vehicle->model }}</th>

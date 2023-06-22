@@ -17,4 +17,9 @@ class Vehicle extends Model
         'plate_number',
         'image',
     ];
+
+    public function clamps()
+    {
+        return $this->hasMany(Clamp::class, 'plate_number', 'plate_number');
+    }
 }
