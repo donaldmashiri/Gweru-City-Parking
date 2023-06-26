@@ -27,9 +27,12 @@
     </li>
 
     <li class="nav-item ">
-        <a class="nav-link collapsed " href="#"><i class="fas fa-fw fa-chair"></i>Chatbot   </a>
+        <a class="nav-link collapsed " href="{{ route('chats.index') }}"><i class="fas fa-fw fa-chair"></i>Chatbot   </a>
     </li>
+
+
 @endif
+
 
 
 <li class="nav-item ">

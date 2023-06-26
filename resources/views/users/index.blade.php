@@ -25,9 +25,12 @@
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header font-weight-bolder">User</div>
+
                             <div class="card-body">
-                                @if($users->count()> 0)
-                                    <table class="table table-bordered table-sm">
+                                <input type="text"class="form-group form-control" id="searchInput" placeholder="Search">
+
+                            @if($users->count() > 0)
+                                    <table id="usersTable" class="table table-bordered table-sm">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -39,24 +42,52 @@
                                         </thead>
                                         <tbody>
                                         @foreach($users as $user)
-                                            <tr>
-                                                <th>{{ $user->id }}</th>
-                                                <th>{{ $user->name }}</th>
-                                                <th>{{ $user->email }}</th>
-                                                <th>{{ $user->created_at }}</th>
-                                                <th>
+                                            <tr class="userRow">
+                                                <td>{{ $user->id }}</td>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                <td>{{ $user->created_at }}</td>
+                                                <td>
                                                     <a href="" class="btn btn-danger">Delete</a>
-                                                </th>
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
                                     </table>
                                 @else
-                                    <h3 class='text-center alert alert-danger'>No Vehicles added</h3>
+                                    <h3 class='text-center alert alert-danger'>No Users added</h3>
                                 @endif
                             </div>
 
+                            <script>
+                                function searchByName() {
+                                    // Get the search input value
+                                    var input = document.getElementById("searchInput").value.toLowerCase();
+
+                                    // Get all the rows in the table body
+                                    var rows = document.getElementsByClassName("userRow");
+
+                                    // Loop through each row and hide/show based on search input
+                                    for (var i = 0; i < rows.length; i++) {
+                                        var nameCell = rows[i].getElementsByTagName("td")[1]; // Index 1 corresponds to the "Name" column
+
+                                        if (nameCell) {
+                                            var name = nameCell.textContent || nameCell.innerText;
+                                            if (name.toLowerCase().indexOf(input) > -1) {
+                                                rows[i].style.display = ""; // Show the row
+                                            } else {
+                                                rows[i].style.display = "none"; // Hide the row
+                                            }
+                                        }
+                                    }
+                                }
+
+                                // Attach an event listener to the search input field
+                                document.getElementById("searchInput").addEventListener("keyup", searchByName);
+                            </script>
+
                         </div>
+
                     </div>
                 </div>
             </div>

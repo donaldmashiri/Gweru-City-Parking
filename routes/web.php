@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/chat', function () {
+    return view('chat');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -24,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('vehicles', \App\Http\Controllers\VehiclesController::class);
 Route::resource('clamps', \App\Http\Controllers\ClampController::class);
 Route::resource('users', \App\Http\Controllers\UserController::class);
+Route::resource('chats', \App\Http\Controllers\ChatController::class);
 
 Route::get('/reports', [App\Http\Controllers\HomeController::class, 'reports'])->name('reports');
 Route::get('/notify', [App\Http\Controllers\HomeController::class, 'notify'])->name('notify');
